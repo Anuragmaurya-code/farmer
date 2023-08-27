@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sthanantarit krushi</title>
+    <meta charset="UTF-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="tabpage.css" />
+
+    <script src="mapdata.js"></script>
+    <script src="countrymap.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="googleTranslate.css" />
+</head>
+
+<body>
+    <div class="container" style="height: 1000px;">
+        <nav>
+            <ul>
+                <li><a class="active" href="homepage"> Home </a></li>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            Options
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="SearchByState">State</a>
+                            <a href="SearchBySoil">Soil</a>
+                            <a href="SearchBySeason">Season</a>
+                            <a href="SearchByCrop">Crop</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div id="google_translate_element"></div>
+                </li>
+                <li style="float: right"><a href="about"> About </a></li>
+            </ul>
+        </nav>
+
+        <div class="grid-item" id="map">
+            <h1 id="h1Map">
+                Click the map to select a state.
+                <hr style="border-top: 4px solid #435052" />
+            </h1>
+        </div>
+
+        <div id="selector">
+            <h1 id="h1Map">
+                Search By Soil.
+                <hr style="border-top: 4px solid #435052" />
+            </h1>
+            <form id="myForm" method="post" action="/SearchBySoil">
+                <div class="select">
+                    <p style="text-align: center; font-size:20px; margin-top: 15px; margin-bottom: 5px;">Select Soil:</p>
+                    <label for="soil"></label>
+                    <select class="selector-box" id="soil" name="soil" required>
+                        <option value="">--Select--</option>
+                        <option value="forest">Forest soil</option>
+                        <option value="arid">Arid soil</option>
+                        <option value="black">Black Soil</option>
+                        <option value="laterite">Laterite soil</option>
+                        <option value="alluvial">Alluvial soil</option>
+                        <option value="red">Red soil</option>
+                        <option value="yellow">Yellow soil</option>
+                    </select>
+                </div>
+                <div class="select">
+                    <p style="text-align: center; font-size:20px; margin-top: 15px; margin-bottom: 5px;">Select Season:</p>
+                    <label for="season"></label>
+                    <select class="selector-box" id="season" name="season" required>
+                        <option value="">--Select--</option>
+                        <option value="kharif">Kharif (July - October)</option>
+                        <option value="rabi">Rabi (October - March)</option>
+                        <option value="allYear">Throughout the year</option>
+                    </select>
+                </div>
+                <button id="tab-page-btn"  type="submit"> Submit </button>
+            </form>
+        </div>
+        <div id="show_info">
+            <h1 id="h1Map">
+                Crop Info.
+                <hr style="border-top: 4px solid #435052" />
+            </h1>
+            <h3>
+                <%= header %>
+            </h3>
+            <h4>
+                <%= content %>
+            </h4>
+            <% crops.forEach(function(crop) { %>
+                <h4><%= crop.name %></h4>
+                <img height="200px" width="200px" src=<%= crop.url[0] %> alt=<%= crop.name %>>
+            
+                <p class="crop-info">
+        
+                    <%- crop.info %>
+                </p>
+            
+                <hr />
+            <% }); %>
+            
+            
+        </div>
+
+        <footer>
+            <ul>
+                <li> <a href="homepage" style="color:rgb(241, 251, 48); font-size: 25px;"> Home </a> </li>
+                <li> <a href="about"style="color:rgb(241, 251, 48); font-size: 25px;"> About </a> </li>
+            </ul>
+            <p style="color:rgb(255, 255, 255); font-size: 20px; margin-left:20px; margin-right:50px;"> We are trying to help farmers grow their crops efficiently by providing them with the necessary information about the soil and the best crops to grow in their respective regions
+                <br><br>Last Updated : 29 April, 2023
+            </p>
+        </footer>
+    </div>
+
+    <script src="tabpage.js"></script>
+    <script src="SoilSeasonSelector.js"></script>
+
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "en",
+
+                    includedLanguages:
+                        "en,as,bn,brx,doi,gu,hi,kn,ks,kok,mai,ml,mni,mr,ne,or,pa,sa,sat,sd,ta,te,ur",
+
+                    autoDisplay: "true",
+
+                    layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+                },
+                "google_translate_element"
+            );
+        }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>

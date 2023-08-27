@@ -1,0 +1,247 @@
+:root{
+  --main-radius:5px;
+  --main-padding:0px;
+}
+
+body{
+  margin: 0;
+  background-color: #435052;
+}
+
+#h1Map{
+  color: rgb(0, 0, 0); text-align: center;
+}
+
+
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 0.2fr 2fr;
+  grid-template-areas: 
+    "nav nav nav"
+    "map selector show_info"
+    "footer footer footer";
+  grid-gap: 0.2em;
+}
+
+nav{
+  grid-area: nav;
+  border-radius: var(--main-radius);
+  padding: var(--main-padding);
+}
+#map{
+  grid-area: map;
+  border-radius: var(--main-radius);
+  padding: var(--main-padding);
+  background-color: #d9ffff;
+  border-width: 20px;
+}
+
+#selector{
+  grid-area: selector;
+  border-radius: var(--main-radius);
+  padding: var(--main-padding);
+  background-color: #d9ffff;
+}
+
+
+
+#show_info{
+  grid-area: show_info;
+  border-radius: var(--main-radius);
+  padding: var(--main-padding);
+  text-align: center;
+  background-color: #d9ffff;
+}
+
+footer{
+  grid-area: footer;
+  border-radius: var(--main-radius);
+  padding: var(--main-padding);
+}
+
+#navbar {
+  z-index: 1
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+nav li {
+  float: left;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #435052;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+nav li a {
+  display: block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+nav li a:hover{
+  background-color: #4f7250;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown:hover{
+  background-color: #4f7250;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #5b5b5b;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+
+}
+
+/*  Nav Bar  End*/
+
+/* Selector google Translator*/
+select {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  color: #333;
+}
+
+select:focus {
+  outline: none;
+  border-color: #6bb7ff;
+  box-shadow: 0 0 2px #6bb7ff;
+}
+
+/* Searchbox */
+
+
+
+.selector-box{
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  padding: 15px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  position: relative;
+  border-radius: 15px;
+  color: #000000;
+}
+
+#tab-page-btn{
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 20px;
+  width: 50%;
+  padding: 15px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  position: relative;
+  border-radius: 15px;
+  color: #000000;
+}
+
+/* Selector*/
+
+footer {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  position: relative;
+  background-color: #435052;
+}
+
+
+footer li {
+  display: inline;
+  padding: 15px;
+}
+
+
+/* Don't know what it does so disable
+.search-box input {
+  width: 88%;
+  padding: 12px 16px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  position: absolute;
+  border-radius: 8px 8px 0 0;
+  z-index: 100;
+  border: 8px solid #787878;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+}
+
+.search-box input:focus {
+  outline: none;
+}
+
+.select-box .options-container.active ~ .search-box input {
+  opacity: 1;
+  pointer-events: auto;
+}
+*/

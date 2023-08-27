@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sthanantarit krushi</title>
+    <meta charset="UTF-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="tabpage.css" />
+    <link rel="stylesheet" type="text/css" href="home_style.css" />
+
+    <script src="mapdata.js"></script>
+    <script src="countrymap.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="googleTranslate.css" />
+</head>
+
+<body>
+    <div class="container1">
+        <nav id="navbar">
+            <ul>
+                <li href="javascript:void(0)"> <a class="active" href="homepage"> Home </a> </li>
+                <li href="javascript:void(0)">
+                    <div class="dropdown">
+                        <button class="dropbtn">Options
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="SearchByState">State</a>
+                            <a href="SearchBySoil">Soil</a>
+                            <a href="SearchBySeason">Season</a>
+                            <a href="SearchByCrop">Crop</a>
+                        </div>
+                    </div>
+                </li>
+                <li href="javascript:void(0)">
+                    <div id="google_translate_element">
+
+                    </div>
+                </li>
+                <li style="float:right" href="javascript:void(0)"> <a href="about"> About </a> </li>
+            </ul>
+        </nav>
+
+
+        <div id="img">
+            <img src="homepage.png" id="image">
+        </div>
+        
+        <div id="welcometext">
+            <h1 style="color:rgb(255, 255, 255)">Sthanantarit Krushi</h1>
+            Welcome to our website, where farmers can find the perfect crops for their area. Maximize your harvest with our expert insights into climate, soil quality, and more.
+            <br> Start planning your successful harvest today!
+        </div>
+        <div id="img">
+            <img src="homepage.png" id="image" />
+        </div>
+        <div id="welcometext">
+            <h1 style="color: rgb(255, 255, 255)">Sthanantarit Krushi</h1>
+        </div>
+    </div>
+
+    <div class="container1.5" style="align-items: center;">
+        <form action="/homepage" method="post">
+            <label for="farming_questions" style="color:white; font-size: 25px; margin-left:20px;  margin-right:10px; ">Query: </label>
+            <input class="gpt-search" id="farming_questions" name="farming_questions" placeholder="Search your farming questions" style="width: 70%;"/>
+            <button class="gpt-btn" id="queryExample">Example</button>
+            <button class="gpt-btn" type="submit">Submit</button>
+        </form>
+        <h3 style="color:#ff2929; margin-left:30px;  margin-right:50px;">
+            <%= header %>
+        </h3>
+        <h3 style="color:#f2eb5d; margin-left:30px;  margin-right:50px;">
+            <%- content %>
+        </h3>
+        
+        
+    </div>
+
+
+    <div class="container2">
+        <div class="grid-item" id="map"></div>
+        <div class="grid-item" id="btn1">
+            <a href="SearchByState">
+               <figure>
+                <img id="home_btn" onclick="close1()" src="state_btn.jpg" alt="close" width="100" >
+                <figcaption>Search by State</figcaption>
+              </figure>
+            </a>
+        </div>
+        <div class="grid-item" id="btn2">
+            <a href="SearchBySoil">
+                <figure>
+                    <img id="home_btn" onclick="close1()" src="soil_btn.jpg" alt="close" width="100" >
+                    <figcaption>Search by Soil</figcaption>
+                  </figure>
+            </a>
+        </div>
+        <div class="grid-item" id="btn3">
+            <a href="SearchBySeason">
+                <figure>
+                    <img id="home_btn" onclick="close1()" src="Season_btn.jpg" alt="close" width="100" >
+                    <figcaption>Search by Season</figcaption>
+                </figure>
+            </a>
+        </div>
+        <div class="grid-item" id="btn4">
+            <a href="SearchByCrop">
+                <figure>
+                    <img id="home_btn" onclick="close1()" src="crop_btn.jpg" alt="close" width="100" >
+                    <figcaption>Search by Crop</figcaption>
+                  </figure>
+            </a>
+        </div>
+        <footer>
+            <ul>
+                <li> <a href="homepage" style="color:rgb(241, 251, 48); font-size: 25px;"> Home </a> </li>
+                <li> <a href="about"style="color:rgb(241, 251, 48); font-size: 25px;"> About </a> </li>
+            </ul>
+            <p style="color:rgb(255, 255, 255); font-size: 20px; margin-left:20px; margin-right:50px;"> We are trying to help farmers grow their crops efficiently by providing them with the necessary information about the soil and the best crops to grow in their respective regions
+                <br><br>Last Updated : 29 April, 2023
+            </p>
+        </footer>
+    </div>
+    <script>
+        window.onscroll = function () {
+            myFunction();
+        };
+
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky");
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+        const farmingQuestionsInput =
+            document.getElementById("farming_questions");
+
+        farmingQuestionsInput.addEventListener("keydown", function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault(); // prevent form submission
+                // handle Enter key press here
+            }
+        });
+
+        const queryForm = document.getElementById("queryExample");
+        queryForm.addEventListener("click", query, false);
+        function query(event) {
+            event.preventDefault();
+            const farming_questions = ["What are the best crops to grow in my area?", "How do I start a small farm?", "What kind of soil is best for growing crops?", "What is the best way to fertilize my crops?", "How do I prevent pests from damaging my crops?", "What are the most common diseases that affect crops?", "How do I know when my crops are ready to harvest?", "How do I store my crops after harvesting?", "What are the best practices for crop rotation?", "How do I choose the right irrigation system for my farm?", "What are the most efficient ways to water crops?", "How do I control weeds in my fields?", "What are the benefits of using cover crops?", "How do I attract pollinators to my farm?", "What are the best practices for pruning fruit trees?", "How do I train my grape vines?", "What are the best methods for planting seeds?", "What are the best practices for harvesting honey?", "How do I raise chickens for eggs?", "How do I care for my dairy cows?", "What are the best practices for milking cows?", "How do I raise and care for goats?", "What are the best practices for raising pigs?", "How do I care for my sheep?", "How do I raise and care for horses?", "What are the best practices for raising bees?", "What are the best practices for growing vegetables in containers?", "How do I design an efficient farm layout?", "What are the best practices for farm record keeping?", "How do I calculate the cost of production for my crops?", "What are the best practices for marketing farm products?", "How do I get organic certification for my farm?", "What are the best practices for soil conservation?", "How do I manage my farm's finances?", "What are the best practices for managing farm labor?", "How do I handle and store pesticides?", "What are the best practices for managing farm waste?", "How do I handle and store fertilizers?", "What are the best practices for managing irrigation water?", "How do I prevent erosion on my farm?", "What are the best practices for managing livestock manure?", "How do I control erosion in my fields?", "How do I prevent soil compaction?", "What are the best practices for managing pastureland?", "What are the best practices for managing forestland?", "How do I choose the right farm equipment?", "What are the best practices for maintaining farm equipment?", "How do I keep my farm safe and secure?", "How do I design and build a greenhouse?", "What are the best practices for managing farm energy use?", "How do I manage and maintain farm buildings?", "What are the best practices for managing farm roads and driveways?"];
+            const elem = document.getElementById("farming_questions");
+            elem.value = farming_questions[Math.floor(Math.random() * 50)];
+        }
+    </script>
+
+    <script>
+
+        function googleTranslateElementInit() {
+
+            new google.translate.TranslateElement({
+
+                pageLanguage: 'en',
+
+                includedLanguages: 'en,as,bn,brx,doi,gu,hi,kn,ks,kok,mai,ml,mni,mr,ne,or,pa,sa,sat,sd,ta,te,ur',
+
+                autoDisplay: 'true',
+
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+
+            }, 'google_translate_element');
+
+        }
+
+    </script>
+
+    <script src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
+</body>
+
+</html>

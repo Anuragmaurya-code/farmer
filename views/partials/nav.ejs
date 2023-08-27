@@ -1,0 +1,66 @@
+<nav id="navbar">
+    <ul>
+      <li href="javascript:void(0)">
+        <a class="active" href="homepage"> Home </a>
+      </li>
+      <li href="javascript:void(0)">
+        <div class="dropdown">
+          <button class="dropbtn">
+            Options
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="SearchByState">State</a>
+            <a href="SearchBySoil">Soil</a>
+            <a href="SearchBySeason">Season</a>
+            <a href="SearchByCrop">Crop</a>
+          </div>
+        </div>
+      </li>
+      <li href="javascript:void(0)">
+        <div id="google_translate_element">
+            
+        </div>
+    </li>
+      </li>
+      <li style="float: right" href="javascript:void(0)">
+        <a href="about"> About </a>
+      </li>
+    </ul>
+  </nav>
+  <script>
+    window.onscroll = function () { myFunction() };
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+</script>
+
+<script>
+
+    function googleTranslateElementInit() {
+
+      new google.translate.TranslateElement({
+
+        pageLanguage: 'en',
+
+        includedLanguages : 'en,as,bn,brx,doi,gu,hi,kn,ks,kok,mai,ml,mni,mr,ne,or,pa,sa,sat,sd,ta,te,ur',
+
+        autoDisplay: 'true',
+
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+
+      }, 'google_translate_element');
+
+    }
+
+  </script>
+
+<script src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script> 

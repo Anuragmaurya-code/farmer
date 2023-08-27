@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Sthanantarit krushi</title>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="tabpage.css">
+    <link rel="stylesheet" type="text/css" href="googleTranslate.css" />
+
+
+</head>
+
+<body>
+    <nav id="navbar">
+        <ul>
+            <li href="javascript:void(0)"> <a class="active" href="homepage"> Home </a> </li>
+            <li href="javascript:void(0)">
+                <div class="dropdown">
+                    <button class="dropbtn">Options
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="SearchByState">State</a>
+                        <a href="SearchBySoil">Soil</a>
+                        <a href="SearchBySeason">Season</a>
+                        <a href="SearchByCrop">Crop</a>
+                    </div>
+                </div>
+            </li>
+            <li href="javascript:void(0)">
+                <div id="google_translate_element">
+
+                </div>
+            </li>
+            <li style="float:right" href="javascript:void(0)"> <a href="about"> About </a> </li>
+        </ul>
+    </nav>
+    <div>
+        <p style="color:rgb(255, 255, 255); font-size: 25px; margin-left:20px; margin-right:50px;">Welcome to our
+            website, dedicated to helping farmers find the most suitable crops for their area. We understand that
+            choosing the right crop can make all the difference in the success of your harvest, and that's why we're
+            here to help. Our user-friendly platform is designed to provide you with valuable insights into the climate,
+            soil quality, and other environmental factors that can impact crop growth. With our help, you can make
+            informed decisions about which crops to plant and when, maximizing your yield and profitability. Whether
+            you're a seasoned farmer or just starting out, we're confident that our website can provide you with the
+            information you need to make the most of your land. So take a look around, explore our resources, and start
+            planning your next successful harvest today!</p>
+    </div>
+
+    <footer>
+        <ul>
+            <li> <a href="homepage" style="color:rgb(241, 251, 48); font-size: 25px;">
+                    Home
+                </a> 
+            </li>
+            <li> <a href="about" style="color:rgb(241, 251, 48); font-size: 25px;"> About </a> </li>
+        </ul>
+        <p style="color:rgb(255, 255, 255); font-size: 20px; margin-left:20px; margin-right:50px;"> We are trying to
+            help farmers grow their crops efficiently by providing them with the necessary information about the
+            soil and the best crops to grow in their respective regions
+            <br><br>Last Updated : 29 April, 2023
+        </p>
+    </footer>
+
+
+    <script>
+
+        function googleTranslateElementInit() {
+
+            new google.translate.TranslateElement({
+
+                pageLanguage: 'en',
+
+                includedLanguages: 'en,as,bn,brx,doi,gu,hi,kn,ks,kok,mai,ml,mni,mr,ne,or,pa,sa,sat,sd,ta,te,ur',
+
+                autoDisplay: 'true',
+
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+
+            }, 'google_translate_element');
+
+        }
+
+    </script>
+
+    <script src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
+
+</body>
+
+</html>

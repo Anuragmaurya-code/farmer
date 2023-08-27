@@ -1,0 +1,16 @@
+.goog-logo-link,.goog-te-gadget span {
+    display:none !important;
+  }
+ .goog-te-gadget {
+    font-size: 0px!important;
+  }
+
+  .goog-te-gadget img{
+    display:none !important;
+}
+body > .skiptranslate {
+    display: none;
+}
+body {
+    top: 0px !important;
+}
